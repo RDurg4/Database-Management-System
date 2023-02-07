@@ -1,0 +1,15 @@
+Durga_26
+create table employee(EmpId number Primary Key,EName Varchar2(20),Salary number(10,3),Dept Varchar2(20),EDate Date);
+insert into employee values(1, 'Abey',30000,'D004' ,'15/dec/2012');
+insert into employee values(2,'Jesto',25000,'D002','24/apr/2011');
+insert into employee values(3,'Adarsh',15000,'D004','10/jan/2013');
+insert into employee values(4,'Kevin',20000,'D002','10/oct/2013');  
+insert into employee values(5,'Bony', 50000,'D001','11/apr/2011');
+insert into employee values(6,'Manu',5000,'D003','19/jun/2013');
+Durga_26
+
+create or replace procedure salincrease(eid IN number,salinc IN number) as
+BEGIN
+    UPDATE employee SET salary=salary+salinc WHERE empid=eid;
+END;
+/

@@ -1,0 +1,21 @@
+create table person(pid number,fname varchar(20),lname varchar(20));
+insert into person values(52,'Beth','Samuel');
+insert into person values(44,'Ann','Mathew');
+select * from person;
+DECLARE
+	CURSOR c_disp IS
+	SELECT * from person
+	WHERE pid>50;
+	c_var c_disp%rowtype;
+BEGIN
+	OPEN c_disp;
+	LOOP
+	FETCH c_disp INTO c_var;
+	EXIT when c_disp%NOTFOUND;
+	dbms_output.put_line('Person ID: '||c_var.pid
+			     ||'  First Name: '||c_var.fname
+			     ||'  Last Name: '||c_var.lname);
+	END LOOP;
+	CLOSE c_disp;
+END;
+/

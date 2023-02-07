@@ -1,0 +1,22 @@
+Durga_26
+create table employee(EmpId Varchar2(20) Primary Key,EmpName Varchar2(20),Job Varchar2(20),Manager Varchar2(20),DeptNo Varchar2(20),HireDate Date,Sal  number(10,3),Comm Number(5));
+insert into employee values('E0001', 'Abey', 'Tester', 'E0004', 'D004' ,'15/dec/12', 30000,500);
+insert into employee values('E0002','Jesto','Analyst','E0001','D002','24/apr/11',25000,650);
+insert into employee values('E0003','Adarsh','Clerk','E0004','D004','10/jan/13', 15000,500);
+insert into employee values('E0004','Kevin','Admin','E0005','D002','10/oct/13' ,20000,1750);  
+insert into employee values('E0005','Bony','Manager',NULL,'D001','11/apr/11', 50000,1000);
+insert into employee values('E0006','Manu','Supplier','E0001','D003','19/jun/13',50000,450);
+Durga_26
+CREATE OR REPLACE PROCEDURE comminc(eid IN Varchar2) AS
+ BEGIN
+    UPDATE employee SET Comm=Comm+(Comm*0.05)  WHERE EmpId=eid;
+END;
+/
+
+begin
+comminc('E0002');
+end;
+/
+
+select comm from employee where empid='E0002';
+Durga_26

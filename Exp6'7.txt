@@ -1,0 +1,23 @@
+26_Durga
+declare 
+	num number;
+	s number;
+	temp number;
+	r number;
+begin
+	num:=&num;
+	temp:=num;
+	s:=0;
+	while num>0 
+	loop
+		r:= mod(num,10);
+		s:=s*10;
+		s:= s+r;
+		num:=trunc(num/10);
+	end loop;
+	if s=temp then 
+	dbms_output.put_line('the number is palindrome');
+	else 
+	dbms_output.put_line('The number is not palindrome');
+	end if;
+end;

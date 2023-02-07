@@ -1,0 +1,18 @@
+Durga_26
+create table Product (product_id INTEGER PRIMARY KEY,product_name VARCHAR2(255),grade INTEGER);
+insert into Product values (1, 'wrench', 3);
+insert into Product values (2, 'tea', 3);
+insert into Product values (3, 'coffee', 1);
+
+create table Sales (product_id INTEGER,sales NUMBER,sales_date DATE,sales_day VARCHAR2(10),FOREIGN KEY (product_id) REFERENCES Product(product_id));
+insert into Sales values (1, 100, SYSDATE, 'MONDAY');
+insert into Sales values (2, 750, SYSDATE, 'TUESDAY');
+insert into Sales values (3, 240, SYSDATE, 'MONDAY');
+create or replace function F21(pid INTEGER) return varchar2 AS pname VARCHAR2(255);
+  pgrade INTEGER;
+BEGIN
+  SELECT product_name, grade INTO pname, pgrade FROM Product WHERE product_id = pid;
+  RETURN pname || ' - Grade ' || pgrade;
+END;
+/
+SELECT F21(1) FROM DUAL;

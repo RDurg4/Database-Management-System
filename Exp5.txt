@@ -1,0 +1,17 @@
+select * from client;
+insert into client values(2,'Rekha','Kochi',682301,'Kerala',0);
+insert into client values(5,'Shikha','Trivandrum',682301,'Kerala',0);
+insert into client values(7,'Mekha','Allepey',682301,'Kerala',0);
+savepoint A;
+delete from client where baldue=0;
+select * from client;
+rollback to A;
+
+
+
+grant all on client to u2109025;
+select empname,empid from employee;
+grant select on employee to u2109027;
+revoke all privileges on client from u2109025;
+revoke select on employee from u2109027;
+

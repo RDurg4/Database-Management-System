@@ -1,0 +1,21 @@
+Durga_26
+create or replace function F22 (target number, s number) return VARCHAR2 IS grade VARCHAR2(2);
+begin
+  IF s>target THEN
+     grade:= 'A';
+  ELSE
+     grade:= 'B';
+  END IF;
+return grade;
+end;
+/
+
+declare
+   total INTEGER;
+begin
+   select sum(sales) into total from sales;
+   DBMS_OUTPUT.PUT_LINE('Grade: ' || F22(100,total));
+end;
+/
+
+select F22(100,sum(sales)) from sales;

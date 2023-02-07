@@ -1,0 +1,14 @@
+26_Durga
+create table evenno(num number);
+declare
+    i number;
+begin
+
+    for i in 10..50 loop
+        if mod(i,2)=0 then
+            insert into evenno values(i);
+        end if;
+    end loop;
+end;
+/
+select * from evenno;

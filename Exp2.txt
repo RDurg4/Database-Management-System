@@ -1,0 +1,83 @@
+26_Durga
+create table students(Id number primary key,Name varchar(20),Email varchar(50),Phoneno number,DOB date,Address varchar(50),Height_in_cm float,DeptNo number not null);
+26_Durga
+create table Dept(DeptNo number primary key,DeptName varchar
+(20),Location varchar(20));
+26_Durga
+desc students
+26_Durga
+desc dept
+26_Durga
+insert into students values
+(0001,'Abey','u2007002@rajagiri.edu.in',9645765552,'15-Dec-2001','RSET-AID',160,004);
+26_Durga
+insert into students values(0002,'Jesto','u2007068@rajagiri.edu.in',9446907495,'24-Apr-2001','RSET-IT',165,002);
+26_Durga
+insert into students values(0003,'Adarsh','u2007003@rajagiri.edu.in',9446168018,'10-Jan-2003','RSET-AID',180,004);
+26_Durga
+insert into students values(0004,'Kevin','u2007004@rajagiri.edu.in',9048779636,'10-Oct-2002','RSET-IT',175,002);
+26_Durga
+insert into students values(0005,'Bony','u2007005@rajagiri.edu.in',8848647102,'11-Apr-2001','RSET-CSE',168,001);
+26_Durga
+insert into students values(0006,'Manu','u2007006@rajagiri.edu.in',9447026251,'19-Jun-2003','RSET-CSBS',190,002);
+26_Durga
+select * from students;
+26_Durga
+insert into dept values(001,'DIT','A block');
+26_Durga
+insert into dept values(002,'DCS','B block');
+26_Durga
+insert into dept values(003,'DEC','C block');
+26_Durga
+insert into dept values(004,'DEE','D block');
+26_Durga
+select * from dept;
+26_Durga
+create table client(Cno varchar(6),Name varchar(20),City varchar(15),Pincode number,State varchar(15),BalDue number);
+desc client;
+26_Durga
+insert into client values(001,'Riya','Kochi',680324,'Kerala',14000);
+26_Durga
+insert into client values(002,'Susan','Kochi',680324,'Kerala',0);
+26_Durga
+insert into client values(003,'Anitha','Chennai',680345,'TamilNadu',5000);
+26_Durga
+insert into client values(004,'Kumar','Pune',680223,'Maharashtra',500);
+26_Durga
+insert into client values(005,'Anu','Nilampur',680321,'Kerala',7600);
+26_Durga
+insert into client values(006,'Vishnu','Bombay',682111,'Maharashtra',2055);
+26_Durga
+select * from client;
+26_Durga
+select * from students;
+26_Durga
+select * from dept;
+26_Durga
+select * from client;
+26_Durga
+insert into students values(0007,'Devika','u2109025@rajagiri.edu.in',9778536195,'14-Nov-2003','RSET-CSBS',162,002);
+26_Durga
+select * from client where rownum<=4;
+26_Durga
+select Name,Email,Phoneno from students;
+26_Durga
+select Name from students where Name like 'A%' OR Name like 'K%';
+26_Durga
+select distinct City from client;
+26_Durga
+select Name from students where Name>='E%' AND Name<='L%';
+26_Durga
+update client set City='Delhi' where Cno=003;
+26_Durga
+update client set BalDue=600 where Name='Susan';
+26_Durga
+select * from students where DeptNo IN (002,004);
+26_Durga
+select BalDue as "Due Balance" from client;
+26_Durga
+select Name from client where State NOT IN ('Kerala');
+26_Durga
+select count(*) from students,dept where students.deptno=dept.deptno AND deptname='DEE';
+26_Durga
+

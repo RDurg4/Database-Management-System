@@ -1,0 +1,16 @@
+//Write a PL/SQL code block to find factorial of a number.//
+26_Durga
+declare 
+    fac number:=1 ;   
+     n number;   
+  
+begin         
+       n:=&num;
+    while n > 0 
+    loop  
+          fac:=n*fac;        
+        n:=n-1;           
+    end loop;         
+  
+dbms_output.put_line('The factorial is :'||fac);  
+end;

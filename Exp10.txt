@@ -1,0 +1,26 @@
+create table xemployee(empid varchar(20),empname varchar(20),job varchar(20),manager varchar(20),deptno varchar(20),hiredate date,comm number,sal number);
+create table nemployee(empid varchar(20),empname varchar(20),job varchar(20),manager varchar(20),deptno varchar(20),hiredate date,comm number,sal number);
+create table cemployee(empid varchar(20),empname varchar(20),job varchar(20),manager varchar(20),deptno varchar(20),hiredate date,comm number,sal number);
+delete from employee where empname='Kevin';
+create or replace trigger one
+before delete on employee
+for each row
+begin
+	insert into xemployee values(:old.empid,:old.empname,:old.job,:old.manager,:old.deptno,:old.hiredate,:old.comm,:old.sal);
+end;
+/
+
+create or replace trigger two
+after insert on employee
+for each row
+begin
+	insert into nemployee values(:new.empid,:new.empname,:new.job,:new.manager,:new.deptno,:new.hiredate,:new.comm,:new.sal);
+end;
+/
+create or replace trigger three
+after update on employee
+for each row
+begin
+	insert into cemployee values(:new.empid,:new.empname,:new.job,:new.manager,:new.deptno,:new.hiredate,:new.comm,:new.sal);
+end;
+/

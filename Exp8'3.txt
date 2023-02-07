@@ -1,0 +1,15 @@
+Durga_26
+create table bank(accountnum number(10,3),name varchar(30),balance number(10,3));
+create or replace procedure withdraw(accno in number,withdrawamt in number) 
+IS
+myex EXCEPTION;
+begin
+update bank set balance = balance-withdrawamt where accountnum=accno;
+IF balance<1000 THEN
+RAISE myex;
+END IF;
+Durga_26
+EXCEPTION
+WHEN myex THEN
+dbms_output.put_line('Insufficient balance');
+END;

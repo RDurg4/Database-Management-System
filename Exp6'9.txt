@@ -1,0 +1,38 @@
+create table gradec(rollno number,name varchar2(20),marks number(3));
+create table gradea(rollno number,name varchar2(20),marks number(3));
+create table gradeb(rollno number,name varchar2(20),marks number(3));
+create table stud(roll number, name varchar2(20), m1 number, m2 number, m3 number, total number);
+declare
+    roll number;
+    name varchar2(20);
+    m1 number;
+    m2 number;
+    m3 number;
+    n number;
+    total number;
+    p number;
+    i number;
+begin
+    n:=&n;
+    i:=0;
+    for i in 0..n loop
+        roll:=&roll;
+        name:='&name';
+        m1:=&m1;
+        m2:=&m2;
+        m3:=&m3;
+        total:=m1+m2+m3;
+        p:=total/300*(100);
+        if p>75 then
+            insert into gradea values(roll, name, p);
+        end if;
+        if 75>=p AND p>60 then
+            insert into gradeb values(roll, name, p);
+        end if;
+        if p<60 then
+            insert into gradec values(roll, name, p);
+        end if;
+        insert into stud values(roll, name, m1, m2, m3, total);
+    end loop;
+end;
+

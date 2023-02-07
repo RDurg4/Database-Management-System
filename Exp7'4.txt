@@ -1,0 +1,32 @@
+26_Durga
+create table accmaster(accno int primary key,name varchar(10),balance int);
+insert into accmaster(1001230,'Jesto',15000);
+insert into accmaster(1001231,'Kevin',25000);
+insert into accmaster(1001232,'Adarsh',10000);
+insert into accmaster(1001233,'Abey',35000);
+create table acctran(accno references accmaster,transaction date,Deb_cred varchar(10),amount int,processed varchar(5));
+declare 
+cursor c1 is select acctran.accno, deb_cred, amount, processed, balance from acctran inner join accmaster on acctran.accno=accmaster.accno where processed=0;
+r1 c1%rowtype;
+newbal number;
+
+begin
+open c1;
+    loop
+    fetch c1 into r1;
+    exit when c1%notfound;
+    if(r1.deb_cred=1) then
+    newbal:=r1.balance+r1.amount;
+    update accmaster set balance= newbal where r1.accno=accmaster.accno;
+    update acctran set processed = 1;
+    dbms_output.put_line(r1.balance);
+    else
+    newbal:=r1.balance-r1.amount;
+    update accmaster set balance= newbal where r1.accno=accmaster.accno;
+    update acctran set processed = 1;
+    dbms_output.put_line(r1.balance);
+    end if;
+    end loop;
+close c1;
+end;
+/

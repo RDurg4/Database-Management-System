@@ -1,0 +1,29 @@
+Durga_26
+create table student(RegNo number,Name varchar2(20),Marks number);
+insert into student values(1,'Abey',99);
+insert into student values(2,'Jesto',80);
+insert into student values(3,'Adarsh',69);
+insert into student values(4,'Kevin',75);
+insert into student values(5,'Bony',90);
+insert into student values(6,'Manu',85);
+Durga_26
+select * from student;
+
+declare
+    avg number;
+begin
+    SELECT AVG(Marks) AS Marks INTO avg FROM student;
+ 
+dbms_output.put_line('Average of Marks is '||avg);  
+END;
+/
+
+declare
+    mn number;
+    rno number;
+begin
+    rno:='&rno';    
+    SELECT Marks AS mn INTO mn FROM student WHERE RegNo=rno;
+ 
+dbms_output.put_line('Roll No '|| rno|| ' Mark is ' ||mn);  
+END;

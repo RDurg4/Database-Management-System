@@ -1,0 +1,12 @@
+//Write  a PL/SQL block. Take the salary of an employee into a variable and check if his or her salary is less than 3000 then update the salary with 4000 //
+26_Durga
+declare
+    sal number;
+begin
+    sal:=&sal;
+    if sal<3000 then
+        sal:=4000;
+        dbms_output.put_line('Salary changed');
+    end if;
+    
+ end;

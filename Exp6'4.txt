@@ -1,0 +1,26 @@
+//Write a pl/sql program to check whether a given 3-digit number is Armstrong or not.//
+26_Durga
+declare 
+	num number;
+	s number;
+	temp number;
+	c number;
+	r number;
+begin
+	num:=&num;
+	temp:=num;
+	s:=0;
+	c:=0;
+	while num>0 
+	loop
+		r:= mod(num,10);
+		c:= r*r*r;
+		s:= s+c;
+		num:=trunc(num/10);
+	end loop;
+	if s=temp then 
+	dbms_output.put_line('the number is armstrong');
+	else 
+	dbms_output.put_line('The number is not armstrong');
+	end if;
+end;

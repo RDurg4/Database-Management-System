@@ -1,0 +1,16 @@
+DECLARE
+	CURSOR c_disp(c_sal IN employee.sal%TYPE) IS
+	SELECT empname,sal
+	FROM employee
+	WHERE sal<c_sal;
+	c_var c_disp%ROWTYPE;
+BEGIN
+	OPEN c_disp(20000);
+	LOOP
+	FETCH c_disp INTO c_var;
+	EXIT when c_disp%NOTFOUND;
+	dbms_output.put_line('Name: '||c_var.empname
+				||'   Salary: '||c_var.sal);
+	END LOOP;
+END;
+/

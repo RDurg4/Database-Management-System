@@ -1,0 +1,55 @@
+create table employee(empid varchar2(20) primary key,empname varchar2(20),job varchar2(10),manager varchar2(20), deptno varchar2(20),hiredate date,Comm number(5),sal number(7));
+insert into employee values('E0001', 'Abey', 'Tester', 'E0004', 'D004', '15-DEC-2012',500, 30000);
+insert into employee values('E000', 'Jesto', 'Analyst', 'E0001', 'D002', '24-apr-2011', 650,25000);
+insert into employee values('E0003', 'Adarsh', 'Clerk', 'E0004', 'D004', '10-jan-2013',500, 15000);
+insert into employee values('E0004', 'Kevin', 'Admin', 'E0005', 'D002', '10-oct-2013',1750, 20000);
+insert into employee values('E0005', 'Bony', 'Manager',' ', 'D001', '11-apr-2011', 1000,50000);
+insert into employee values('E0006', 'Manu', 'Supplier', 'E0001','D003', '19-jun-2013',450, 5000);
+
+
+select * from client;
+select * from employee;
+select sum(Baldue) from client;
+select count(*) from employee;
+select count(*) from employee;
+select avg(sal) from employee;
+select name from client order by name;
+select max(sal) from employee group by DEPTNO
+select min(sal) from employee group by deptno having deptno<>'D001';
+
+2)
+a)Display all the DeptNo available with the dept and employee tables.
+select DISTINCT Deptno from dept inner join employee on dept.deptid=employee.deptno;
+
+b)Display all the DeptNo available in employee and not in department tables.
+select dno from employee where dno not in (select deptno from dept1)
+
+c)Write a nested query to select the employees who have got more salary than Adarsh.
+select empname from employee where salary > (select salary from employee where empname like 'Adarsh');
+
+d)Write a nested query to select the employees who have less salary than any employees working in dept D004
+select empname from employee where salary<(select max(salary) from employee where dno='D004');
+
+e)Display all employee names and salary whose salary is greater than minimum salary of the company and job title starts with A.
+select empname,salary from employee where salary>(select min(salary) from employee) and  job like 'A%';
+
+f)Display the employee details, departments that the departments are same in both the employee and department.
+select * from employee inner join dept1 on employee.dno=dept1.deptno;
+
+g)Display the employee details, departments that the departments are not same in both the employee and department.
+select * from employee where dno not in (select deptno from dept1)
+
+h)Display the Employee name, Job, Department Name by implementing a left outer join.
+select empname,job,deptname from employee left outer join dept1 on employee.dno=dept1.deptno;
+
+i)Display the Employee name, Job, Manager Name by implementing a right outer join.
+select empname,job,deptname from employee right outer join dept1 on employee.dno=dept1.deptno;
+
+j)Display the Employee name, Job, Manager Name by implementing a full outer join.
+select empname,job,deptname from employee full outer join dept1 on employee.dno=dept1.deptno;
+
+
+
+
+
+

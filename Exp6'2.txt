@@ -1,0 +1,16 @@
+26_Durga
+declare 
+	num number;
+	s number;
+	r number;
+begin
+s:=0;
+num:=&num;
+ WHILE num > 0
+ LOOP 
+        r := mod(num,10); 
+        s := s + r; 
+        num := Trunc(num / 10);
+    END LOOP; 
+    dbms_output.put_line('sum of digits = '||s); 
+END; 

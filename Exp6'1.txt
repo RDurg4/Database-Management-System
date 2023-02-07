@@ -1,0 +1,22 @@
+//Write a PL/SQL block to calculate gross salary on the basis of basic salary if DA is 40% of basic, HRA is 20% of basic and PF deduction is 12% of basic salary//
+26_Durga
+declare
+    ename varchar2(15);
+    basic number;
+    da number;
+    hra number;
+    pf number;
+    netsalary number;
+begin
+    ename:='&ename';
+    basic:=&basic;
+    da:=basic * (40/100);
+    hra:=basic * (20/100);
+    pf:=basic * (12/100);
+    netsalary:=basic + da + hra -pf;
+ 
+dbms_output.put_line('Employee name : ' || ename);
+dbms_output.put_line('Providend Fund : ' || pf);
+dbms_output.put_line('Net salary : ' || netsalary);
+end;
+/

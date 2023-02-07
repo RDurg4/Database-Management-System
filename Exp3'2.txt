@@ -1,0 +1,22 @@
+
+26_Durga
+select * from employee;
+26_Durga
+select power(16,5) from dual;
+26_Durga
+select length('Application') from dual;
+26_Durga
+select last_day(sysdate) from dual;
+26_Durga
+select TO_CHAR(65432,'$99999') from dual;
+26_Durga
+select systimestamp from dual;
+26_Durga
+select extract(year from DOB) from students;
+26_Durga
+select count(DeptName) from Dept;
+26_Durga
+select TO_CHAR(DOB,'Day,DD Month,YYYY') from students;
+26_Durga
+select sname,trunc(months_between(sysdate,dob)) from students;
+26_Durga

@@ -1,0 +1,29 @@
+26_Durga
+create table employee(EmpId varchar(20) Primary key,EmpName varchar(20),Job varchar(20),Manager varchar(20));
+26_Durga
+insert into employee values('E0001','Abey','Tester','E0004');
+26_Durga
+insert into employee values('E0002','Jesto','Analyst','E0001');
+26_Durga
+insert into employee values('E0003','Adarsh','Clerk','E0004');
+26_Durga
+insert into employee values('E0004','Kevin','Admin','E0005');
+26_Durga
+insert into employee values('E0005','Bony','Manager','');
+26_Durga
+insert into employee values('E0006','Manu','Supplier','E0001');
+26_Durga
+create view cust_vw (EmpId,EmpName,Job,Manager) AS (select * from employee);
+26_Durga
+select * from cust_vw;
+26_Durga
+update cust_vw set job='SeniorClerk' where job='Clerk';
+26_Durga
+select * from cust_vw;
+26_Durga
+delete from cust_vw where EmpName='Kevin';
+26_Durga
+select * from cust_vw;
+26_Durga
+drop view cust_vw;
+26_Durga

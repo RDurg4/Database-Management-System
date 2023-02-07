@@ -1,0 +1,21 @@
+DECLARE
+  CURSOR c_emp
+  IS
+    SELECT * FROM employee;
+    r_emp c_emp%rowtype;
+BEGIN
+
+ open c_emp;
+  LOOP
+   FETCH c_emp INTO r_emp;
+   EXIT when c_emp%NOTFOUND;
+   dbms_output.put_line( 'ID: ' || r_emp.empid 
+			||'  Name: ' ||r_emp.empname 
+			||'  Job: ' || r_emp.job 
+			||'  Manager: ' ||r_emp.manager 
+			||'  Deptno: '|| r_emp.deptno
+			||'  Salary: '||r_emp.sal);
+  END LOOP;
+  close c_emp;
+END;
+/

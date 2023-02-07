@@ -1,0 +1,24 @@
+Durga_26
+declare
+    num1 number;
+    num2 number;
+    gcd number;
+    lcm number;
+    tn1 number;
+    tn2 number;
+begin
+        num1:='&num1';
+    tn1:=num1;
+        num2:='&num2';
+    tn2:=num2;      
+    WHILE MOD(num2, num1) != 0 LOOP  
+        gcd := MOD(num2, num1);  
+       num2 := num1;  
+        num1 := gcd;  
+        END LOOP;  
+    lcm:=(tn1*tn2)/num1;
+
+dbms_output.put_line('GCD is ' ||num1);  
+dbms_output.put_line('LCM is ' ||lcm); 
+end;
+/
